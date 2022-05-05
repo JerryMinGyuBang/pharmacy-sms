@@ -1,0 +1,24 @@
+{
+  "name": "pharmacy-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pharmacy.js",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "twilio": "^3.77.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pos03142ap/pharmacy-sms.git"
+  },
+  "author": "da boys",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pos03142ap/pharmacy-sms/issues"
+  },
+  "homepage": "https://github.com/pos03142ap/pharmacy-sms#readme"
+}
