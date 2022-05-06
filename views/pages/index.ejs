@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>Send a Message</h1>
+    <p>Fill in the following form</p>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Patient Phone Number</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="+12345678910">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>Medication 1</option>
+          <option>Medication 2</option>
+          <option>Medication 3</option>
+          <option>Medication 4</option>
+          <option>Medication 5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Multiple select</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+          <option>Medication 1</option>
+          <option>Medication 2</option>
+          <option>Medication 3</option>
+          <option>Medication 4</option>
+          <option>Medication 5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Send a Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Did you take your medication? Reply YES or NO"></textarea>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

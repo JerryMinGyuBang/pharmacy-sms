@@ -5,8 +5,8 @@ const client = require('twilio')(accountSid, authToken);
 
 client.messages
   .create({
-     body: 'Sexy',
-     from: '+19896621518',
-     to: '+14167865306'
+     body: 'Did you take your medication? Reply YES or NO',
+     from: process.env.FROM,
+     to: process.env.TO
    })
   .then(message => console.log(message.sid));
