@@ -31,7 +31,7 @@ require('dotenv').config();
 var client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN),
 cronJob = require('cron').CronJob;
 
-var numbers = ['YOURPHONENUMBER', 'YOURFRIENDSPHONENUMBER'];
+var numbers = [process.env.FROM, process.env.TO];
 
 var textJob = new cronJob( '0 18 * * *', function(){
   for( var i = 0; i < numbers.length; i++ ) {
@@ -52,9 +52,9 @@ app.set('view engine', 'ejs');
 // use res.render to load up an ejs view file
 
 // index page
-app.get('/', function(req, res) {
-  res.render('pages/index');
-});
+// app.get('/', function(req, res) {
+//   res.render('pages/index');
+// });
 
 // about page
 // app.get('/about', function(req, res) {
