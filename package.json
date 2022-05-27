@@ -4,6 +4,8 @@
   "description": "",
   "main": "pharmacy.js",
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "cron": "^2.0.0",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.7",
     "express": "^4.18.1",
