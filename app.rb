@@ -3,9 +3,11 @@ require 'sinatra'
 
 get '/inbound' do
   content_type 'text/xml'
-  '<Response><Message>Touchdown, Bo Jackson!</Message></Response>'
+  '<Response><Message>Hello!</Message></Response>'
 end
 
 # To start server
-# ngrok 4567
+# export GEM_HOME="$HOME/.gem"
+# ruby app.rb
+# ngrok http 4567
 # Link to Twilio GET Response

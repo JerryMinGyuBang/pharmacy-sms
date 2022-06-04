@@ -26,6 +26,17 @@
 // app.listen(8080);
 // console.log('Server is listening on port 8080');
 
+// Firebase
+var Firebase = require('firebase'),
+usersRef = new Firebase('https://pharmacy-sms-default-rtdb.firebaseio.com/Users/');
+
+var numbers = [];
+usersRef.on('child_added', function(snapshot) {
+numbers.push( snapshot.val() );
+  console.log( 'Added number ' + snapshot.val() );
+});
+
+// Twilio
 var twilio = require('twilio')
 require('dotenv').config();
 var client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN),
@@ -41,6 +52,8 @@ var textJob = new cronJob( '0 18 * * *', function(){
   }
 },  null, true);
 
+
+// Express
 var express = require('express');
 var app = express();
 bodyParser = require('body-parser');
@@ -70,11 +83,23 @@ app.use(bodyParser.urlencoded({
 // route for TwiML
 app.post('/message', function (req, res) {
   var resp = new MessagingResponse();
-  resp.message('Thanks for subscribing!');
+  if( req.body.Body.trim().toLowerCase() === 'subscribe' ) {
+    var fromNum = req.body.From;
+    if(numbers.indexOf(fromNum) !== -1) {
+      resp.message('You already subscribed!');
+    } else {
+      resp.message('Thank you, you are now subscribed. Reply "STOP" to stop receiving updates.');
+      usersRef.push(fromNum);
+    }
+  } else {
+    resp.message('Welcome to Daily Updates. Text "Subscribe" receive updates.');
+  }
+
   res.writeHead(200, {
     'Content-Type':'text/xml'
   });
   res.end(resp.toString());
+
 });
 
 var server = app.listen(3000, function() {
